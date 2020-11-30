@@ -6,7 +6,6 @@ const {customerSchema} = require('../../utils/registerCustomer.validation')
 module.exports = async function(req, res, next) {
   try{
     let validate = await customerSchema.validateAsync(req.body)
-    console.log(validate)
      let result = await registerCustomer(req.body)
      res.status(result.status).json(result.message)
 
